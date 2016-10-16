@@ -20,7 +20,7 @@ use Mix.Config
 #
 #     config :logger, level: :info
 #
-config :scraper,
+config :openaus,
 	base_url: "http://www.openaustralia.org.au/api/"
 
 # It is also possible to import configuration files, relative to this

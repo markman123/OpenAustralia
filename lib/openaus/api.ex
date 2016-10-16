@@ -1,14 +1,11 @@
-defmodule Scraper.Api.Debates do
+defmodule OpenAus.Api do
 	@moduledoc """
 	Contains the helpers for URI building
 	"""
 	def get(api_function, opts \\ [])do
-		query = search_term
-			|> build_string
-			|> add_opts(opts)
 
 		api_function
-			|> build_full_url(query)
+			|> build_full_url(opts)
 			|> HTTPoison.get
 			|> clean_response()
 	end
@@ -18,6 +15,13 @@ defmodule Scraper.Api.Debates do
 		|> Poison.decode!
 	end
 
+
+
+	def build_full_url(api, opts) do
+		qry = opts |> build_string() |> URI.encode_query
+		"#{base_uri}#{api}?#{qry}"
+	end
+
 	@doc """
 	builds string
 	"""
@@ -25,13 +29,8 @@ defmodule Scraper.Api.Debates do
 		Keyword.merge(base_query(), opts)
 	end
 
-	defp build_full_url(api, qry) do
-		qry = URI.encode_query(qry)
-		"#{base_uri}#{api}?#{qry}"
-	end
-
 	defp base_uri() do
-		Application.get_env(:scraper, :base_url)
+		Application.get_env(:openaus, :base_url)
 	end
 
 	defp base_query() do
