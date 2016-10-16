@@ -17,7 +17,7 @@ iex> OpenAus.hansard("Search term")
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add `scraper` to your list of dependencies in `mix.exs`:
+  1. Add `openaus` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
