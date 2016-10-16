@@ -1,6 +1,17 @@
-# Scraper
+# Open Australia
 
-**TODO: Add description**
+This interfaces with the [OpenAustralia.org API](https://www.openaustralia.org.au/api).
+
+It searches for an environment variable for your api key
+```
+export OPENAUS_KEY=KEY_HERE
+```
+
+Then, you simply run one of the functions, such as:
+
+```elixir
+iex> OpenAus.hansard("Search term")
+```
 
 ## Installation
 
@@ -10,7 +21,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:scraper, "~> 0.1.0"}]
+      [{:openaus, "~> 0.1.0"}]
     end
     ```
 
@@ -18,7 +29,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def application do
-      [applications: [:scraper]]
+      [applications: [:openaus]]
     end
     ```
-
